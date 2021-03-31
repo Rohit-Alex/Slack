@@ -1,24 +1,28 @@
 import { Button } from "@material-ui/core";
 import React, { useState } from "react";
 import styled from "styled-components";
-import { db } from "../../firebase";
+import { auth, db } from "../../firebase";
 import firebase from "firebase";
-import photo from "../../photo.jpg";
-const ChatInput = ({ channelName, channelId }) => {
+import { useAuthState } from "react-firebase-hooks/auth";
+const ChatInput = ({ channelName, channelId, href }) => {
   const [inputMsg, setInputMsg] = useState("");
-  console.log(channelId);
+  const [user] = useAuthState(auth);
+  // console.log(channelId);
   const sendMessage = (e) => {
     e.preventDefault();
     setInputMsg("");
-    console.log("hello");
+
     if (!channelId) {
       return false;
     }
     db.collection("rooms").doc(channelId).collection("messages").add({
       message: inputMsg,
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-      user: "Rohit",
-      userImage: photo,
+      user: user.displayName,
+      userImage: user.photoURL,
+    });
+    href.current.scrollIntoView({
+      behavior: "smooth",
     });
   };
   const handleChange = (e) => {
@@ -29,7 +33,7 @@ const ChatInput = ({ channelName, channelId }) => {
     <ChatInputContainer>
       <form>
         <input
-          placeholder={`Message ${channelId}`}
+          placeholder={`Message #${channelName}`}
           value={inputMsg}
           onChange={handleChange}
         />

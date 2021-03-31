@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import FiberManualRecordIcon from "@material-ui/icons/FiberManualRecord";
 import CreateIcon from "@material-ui/icons/Create";
@@ -13,11 +13,13 @@ import AppsIcon from "@material-ui/icons/Apps";
 import ExpandLessIcon from "@material-ui/icons/ExpandLess";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import AddIcon from "@material-ui/icons/Add";
-import { db } from "../../firebase.js";
+import { auth, db } from "../../firebase.js";
 import { useCollection } from "react-firebase-hooks/firestore";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 const Sidebar = () => {
-  const [channels, loading, error] = useCollection(db.collection("rooms"));
+  const [user] = useAuthState(auth);
+  const [channels] = useCollection(db.collection("rooms"));
   console.log(channels);
 
   return (
@@ -27,7 +29,7 @@ const Sidebar = () => {
           <h2>SHIELD</h2>
           <h3>
             <FiberManualRecordIcon />
-            Rohit
+            {user.displayName}
           </h3>
         </SidebarInfo>
         <CreateIcon />
