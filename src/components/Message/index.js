@@ -24,15 +24,15 @@ const MessageContainer = styled.div`
   padding: 20px;
   > img {
     height: 50px;
-    border-radius: 8px;
+    border-radius: 31px;
   }
 `;
 const MessageInfo = styled.div`
   padding-left: 10px;
   > h4 > span {
-    color: gray;
+    color: #461147;
     font-weight: 300;
     margin-left: 4px;
-    font-size: 10px;
+    font-size: 12px;
   }
 `;

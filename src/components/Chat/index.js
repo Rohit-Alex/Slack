@@ -15,7 +15,7 @@ const Chat = () => {
   const [roomDetails] = useDocument(
     roomId && db.collection("rooms").doc(roomId)
   );
-  const [roomMessages] = useCollection(
+  const [roomMessages, loading] = useCollection(
     roomId &&
       db
         .collection("rooms")
@@ -25,55 +25,54 @@ const Chat = () => {
   );
   // console.log(roomDetails?.data());
   console.log(roomMessages);
-  // useEffect(() => {
-  //   href.current.scrollIntoView({
-  //     behavior: "smooth",
-  //   });
-  // }, [roomId, loading]);
+  useEffect(() => {
+    href.current.scrollIntoView({
+      behavior: "smooth",
+    });
+  }, [roomId, loading]);
   return (
     <ChatContainer>
       <ImageContainer>
         <img src={bkg} alt="chatBackground" />
-        {roomDetails && roomMessages && (
-          <>
-            <h3>Chat is on boyz</h3>
-            <Header>
-              <HeaderLeft>
-                <h4>
-                  <strong>#{roomDetails?.data().name}</strong>
-                </h4>
-                <StarBorderOutlinedIcon />
-              </HeaderLeft>
-              <HeaderRight>
-                <p>
-                  <InfoOutlinedIcon />
-                  Details
-                </p>
-              </HeaderRight>
-            </Header>
+        {/* {roomDetails && roomMessages && ( */}
+        <>
+          <Header>
+            <HeaderLeft>
+              <h2>
+                <strong>#{roomDetails?.data().name}</strong>
+              </h2>
+              <StarBorderOutlinedIcon />
+            </HeaderLeft>
+            <HeaderRight>
+              <h2>
+                <InfoOutlinedIcon />
+                Details
+              </h2>
+            </HeaderRight>
+          </Header>
 
-            <ChatMessage>
-              {roomMessages?.docs.map((doc) => {
-                const { message, timestamp, user, userImage } = doc.data();
-                return (
-                  <Message
-                    key={doc.id}
-                    message={message}
-                    timeStamp={timestamp}
-                    user={user}
-                    userImage={userImage}
-                  />
-                );
-              })}
-            </ChatMessage>
-            <ChatBotton ref={href} />
-            <ChatInput
-              href={href}
-              channelName={roomDetails?.data().name}
-              channelId={roomId}
-            />
-          </>
-        )}
+          <ChatMessage>
+            {roomMessages?.docs.map((doc) => {
+              const { message, timestamp, user, userImage } = doc.data();
+              return (
+                <Message
+                  key={doc.id}
+                  message={message}
+                  timeStamp={timestamp}
+                  user={user}
+                  userImage={userImage}
+                />
+              );
+            })}
+          </ChatMessage>
+          <ChatBotton ref={href} />
+          <ChatInput
+            href={href}
+            channelName={roomDetails?.data().name}
+            channelId={roomId}
+          />
+        </>
+        {/* )} */}
       </ImageContainer>
     </ChatContainer>
   );
@@ -109,7 +108,7 @@ const Header = styled.div`
 const HeaderLeft = styled.div`
   display: flex;
   align-items: center;
-  > h4 {
+  > h2 {
     display: flex;
     text-transform: lowercase;
   }
@@ -119,12 +118,12 @@ const HeaderLeft = styled.div`
   }
 `;
 const HeaderRight = styled.div`
-  > p {
+  > h2 {
     display: flex;
     align-items: center;
-    font-size: 16px;
+    /* font-size: 16px; */
   }
-  > p > .MuiSvgIcon-root {
+  > h2 > .MuiSvgIcon-root {
     margin-right: 5px !important;
     font-size: 16px;
   }

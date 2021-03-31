@@ -66,6 +66,10 @@ const SidebarContainer = styled.div`
   max-width: 260px;
   margin-top: 60px;
   overflow-y: auto;
+  font-family: "Yatra One", cursive;
+  ::-webkit-scrollbar {
+    display: none;
+  }
   > hr {
     margin-top: 10px;
     margin-bottom: 10px;

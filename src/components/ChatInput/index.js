@@ -66,6 +66,6 @@ const ChatInputContainer = styled.div`
     position: fixed;
     bottom: 40px;
     right: 50px;
-    /* display: none; */
+    display: none;
   }
 `;
