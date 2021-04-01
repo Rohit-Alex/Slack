@@ -70,9 +70,9 @@ const SidebarContainer = styled.div`
   margin-top: 60px;
   overflow-y: auto;
   font-family: "Yatra One", cursive;
-  ::-webkit-scrollbar {
+  /* ::-webkit-scrollbar {
     display: none;
-  }
+  } */
   > hr {
     margin-top: 10px;
     margin-bottom: 10px;
