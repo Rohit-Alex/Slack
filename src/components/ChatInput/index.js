@@ -54,9 +54,15 @@ const ChatInputContainer = styled.div`
     justify-content: center;
   }
   > form > input {
+    @media (min-width: 1159px) {
+      width: 70%;
+    }
+    @media (min-width: 500px) and (max-width: 1159px) {
+      width: 60%;
+    }
     position: fixed;
     bottom: 30px;
-    width: 60%;
+    width: 50%;
     border: 1px solid gray;
     border-radius: 20px;
     padding: 20px;
