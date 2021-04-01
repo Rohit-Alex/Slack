@@ -89,16 +89,13 @@ const ChatContainer = styled.div`
 `;
 const ImageContainer = styled.div`
   > img {
-    background-size: cover;
     opacity: 0.8;
-    width: 100vw;
+    width: 100%;
+    height: 100%;
     position: fixed;
-    height: 100vh;
+
     overflow-y: hidden;
     z-index: -1;
-    left: 200px;
-    background-repeat: no-repeat;
-    background-size: cover;
   }
 `;
 const Header = styled.div`
