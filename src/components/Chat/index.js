@@ -80,9 +80,9 @@ const Chat = () => {
 
 export default Chat;
 const ChatContainer = styled.div`
-  @media screen and (min-width: 700px) {
+  /* @media screen and (min-width: 700px) {
     flex: 0.6;
-  }
+  } */
   flex: 0.5;
   flex-grow: 1;
   overflow-y: scroll;
