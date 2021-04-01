@@ -32,72 +32,75 @@ const Chat = () => {
   }, [roomId, loading]);
   return (
     <ChatContainer>
-      <ImageContainer>
-        <img src={bkg} alt="chatBackground" />
-        {/* {roomDetails && roomMessages && ( */}
-        <>
-          <Header>
-            <HeaderLeft>
-              <h2>
-                <strong>#{roomDetails?.data().name}</strong>
-              </h2>
-              <StarBorderOutlinedIcon />
-            </HeaderLeft>
-            <HeaderRight>
-              <h2>
-                <InfoOutlinedIcon />
-                Details
-              </h2>
-            </HeaderRight>
-          </Header>
+      {/* <ImageContainer>
+        <img src={bkg} alt="chatBackground" /> */}
+      {/* {roomDetails && roomMessages && ( */}
+      <>
+        <Header>
+          <HeaderLeft>
+            <h2>
+              <strong>#{roomDetails?.data().name}</strong>
+            </h2>
+            <StarBorderOutlinedIcon />
+          </HeaderLeft>
+          <HeaderRight>
+            <h2>
+              <InfoOutlinedIcon />
+              Details
+            </h2>
+          </HeaderRight>
+        </Header>
 
-          <ChatMessage>
-            {roomMessages?.docs.map((doc) => {
-              const { message, timestamp, user, userImage } = doc.data();
-              return (
-                <Message
-                  key={doc.id}
-                  message={message}
-                  timeStamp={timestamp}
-                  user={user}
-                  userImage={userImage}
-                />
-              );
-            })}
-          </ChatMessage>
-          <ChatBotton ref={href} />
-          <ChatInput
-            href={href}
-            channelName={roomDetails?.data().name}
-            channelId={roomId}
-          />
-        </>
-        {/* )} */}
-      </ImageContainer>
+        <ChatMessage>
+          {roomMessages?.docs.map((doc) => {
+            const { message, timestamp, user, userImage } = doc.data();
+            return (
+              <Message
+                key={doc.id}
+                message={message}
+                timeStamp={timestamp}
+                user={user}
+                userImage={userImage}
+              />
+            );
+          })}
+        </ChatMessage>
+        <ChatBotton ref={href} />
+        <ChatInput
+          href={href}
+          channelName={roomDetails?.data().name}
+          channelId={roomId}
+        />
+      </>
+      {/* )} */}
+      {/* </ImageContainer> */}
     </ChatContainer>
   );
 };
 
 export default Chat;
 const ChatContainer = styled.div`
-  flex: 0.6;
+  @media screen and (min-width: 700px) {
+    flex: 0.6;
+  }
+  flex: 0.5;
   flex-grow: 1;
   overflow-y: scroll;
   margin-top: 60px;
   padding-left: 5px;
-  z-index: 1;
+  /* z-index: 1; */
 `;
-const ImageContainer = styled.div`
-  > img {
-    opacity: 0.8;
-    width: 100%;
-    height: 100%;
-    position: fixed;
+// const ImageContainer = styled.div`
+//   > img {
+//     opacity: 0.8;
+//     width: 100%;
+//     height: 100%;
+//     position: fixed;
 
-    overflow-y: hidden;
-    z-index: -1;
-  }
-`;
+//     overflow-y: hidden;
+//     z-index: -1;
+//   }
+// `;
 const Header = styled.div`
   display: flex;
   flex: 1;

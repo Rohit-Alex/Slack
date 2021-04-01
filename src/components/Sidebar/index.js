@@ -60,7 +60,10 @@ export default Sidebar;
 
 const SidebarContainer = styled.div`
   background-color: var(--slack-color);
-  flex: 0.4;
+  @media screen and (min-width: 700px) {
+    flex: 0.4;
+  }
+  flex: 0.5;
   color: white;
   border-top: 1px solid #49274b;
   max-width: 260px;
