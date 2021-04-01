@@ -19,7 +19,7 @@ function App() {
             src="https://a.slack-edge.com/80588/marketing/img/meta/slack_hash_256.png"
             alt="logo"
           />
-          <Spinner name="ball-spin-fade-loader" color="white" fadeIn="none" />
+          <Spinner name="ball-spin-fade-loader" color="purple" fadeIn="none" />
         </Contents>
       </AppLoading>
     );
@@ -55,7 +55,7 @@ const AppBody = styled.div`
   height: 100vh;
 `;
 const AppLoading = styled.div`
-  background-color: #711e7b;
+  background-color: #dccfdd;
   height: 100vh;
   display: grid;
   place-items: center;
@@ -74,5 +74,6 @@ const Contents = styled.div`
     padding: 20px;
     height: 200px;
     margin-bottom: 20px;
+    border-radius: 141px;
   }
 `;

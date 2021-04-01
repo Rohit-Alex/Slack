@@ -24,26 +24,23 @@ const Login = () => {
 
 export default Login;
 const LoginContainer = styled.div`
-  background-color: #711e7b;
-  height: 100vh;
+  background-color: #dccfdd;
   display: grid;
   place-items: center;
   height: 100vh;
   width: 100vw;
-  position: relative;
 `;
 const LoginInnerContainer = styled.div`
-  /* object-fit: cover; */
   padding: 100px;
   text-align: center;
-  background-color: #611f69;
+  background-color: #d7c3da;
   border-radius: 10px;
-  box-shadow: 0 1px 3px rgba (0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  /* > img {
+  > img {
     object-fit: contain;
     height: 100px;
     margin-bottom: 40px;
-  } */
+    border-radius: 141px;
+  }
   > button {
     margin-top: 50px;
     text-transform: inherit;
