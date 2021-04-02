@@ -8,7 +8,7 @@ import ChatInput from "../ChatInput";
 import { useCollection, useDocument } from "react-firebase-hooks/firestore";
 import { db } from "../../firebase";
 import Message from "../Message";
-import bkg from "../../movie1.jpg";
+
 const Chat = () => {
   const href = useRef(null);
   const roomId = useSelector(selectRoomId);

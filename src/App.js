@@ -23,28 +23,29 @@ function App() {
         </Contents>
       </AppLoading>
     );
+  } else {
+    return (
+      <div className="App">
+        <BrowserRouter>
+          {!user ? (
+            <Login />
+          ) : (
+            <>
+              <Header />
+              <AppBody>
+                <Sidebar />
+                <Switch>
+                  <Route exact path="/">
+                    <Chat />
+                  </Route>
+                </Switch>
+              </AppBody>
+            </>
+          )}
+        </BrowserRouter>
+      </div>
+    );
   }
-  return (
-    <div className="App">
-      <BrowserRouter>
-        {!user ? (
-          <Login />
-        ) : (
-          <>
-            <Header />
-            <AppBody>
-              <Sidebar />
-              <Switch>
-                <Route exact path="/">
-                  <Chat />
-                </Route>
-              </Switch>
-            </AppBody>
-          </>
-        )}
-      </BrowserRouter>
-    </div>
-  );
 }
 
 export default App;
