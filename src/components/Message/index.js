@@ -3,6 +3,7 @@ import React from "react";
 
 const Message = ({ message, timeStamp, user, userImage }) => {
   console.log(message);
+  console.log(timeStamp)
   return (
     <MessageContainer>
       <img src={userImage} alt="userPhoto" />
